@@ -26,18 +26,21 @@ window.onload = function () {
     return;
   }
 
-  let u_w = gl.getUniformLocation(gl.program, "u_w");
-  let u_h = gl.getUniformLocation(gl.program, "u_h");
-  gl.uniform1f(u_w, canvas_w);
-  gl.uniform1f(u_h, canvas_h);
+  // let u_w = gl.getUniformLocation(gl.program, "u_w");
+  // let u_h = gl.getUniformLocation(gl.program, "u_h");
+  // gl.uniform1f(u_w, canvas_w);
+  // gl.uniform1f(u_h, canvas_h);
 
   initVertexBuffers(gl);
   function initVertexBuffers(gl) {
     // 4个点的坐标信息和颜色信息
     // vertex = position + color
     let vertices = new Float32Array([
-      -0.5, 0.5, 0.0, 1.0, 0.0, 0.0, -0.5, -0.5, 0.0, 0.0, 1.0, 0.0, 0.5, -0.5,
-      0.0, 0.0, 0.0, 1.0, 0.5, 0.5, 0.0, 1.0, 1.0, 1.0
+  //  x     y    z     r   g    b
+      -0.5, 0.5, 0.0, 1.0, 0.0, 0.0, 
+      -0.5, -0.5,0.0, 0.0, 1.0, 0.0, 
+      0.5, -0.5, 0.0, 0.0, 0.0, 1.0, 
+      0.5, 0.5,  0.0, 1.0, 1.0, 1.0
     ]);
 
     // 4个点的坐标信息
@@ -62,7 +65,14 @@ window.onload = function () {
     gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
 
     let a_position = gl.getAttribLocation(gl.program, "a_position");
-    gl.vertexAttribPointer(a_position, 3, gl.FLOAT, false, FSIZE * 6, 0);
+    gl.vertexAttribPointer(
+      a_position,
+          3,   // 一组个数据为一组
+          gl.FLOAT, 
+          false, 
+          FSIZE * 6,  // 总数据长度为6
+          0 // 索引从0开始
+        );
     gl.enableVertexAttribArray(a_position);
 
     // let colorsBuffer = gl.createBuffer()

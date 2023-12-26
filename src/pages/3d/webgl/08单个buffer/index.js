@@ -38,12 +38,9 @@ window.onload = function () {
        -1 
   */
   let vertices = new Float32Array([
-  
-    -0.5, -0.5, 
-
-    0.5, -0.5, 
-
-    0.0, 0.5
+    -0.5, -0.5,  
+    0.5, -0.5,  
+    0.0, 0.5 ,  
   ]);
 
   let FSIZE = vertices.BYTES_PER_ELEMENT; // Float32 Size = 3
@@ -76,7 +73,7 @@ window.onload = function () {
      */
   gl.vertexAttribPointer(
     a_Position, // 变量 指定要修改的顶点属性的索引。
-    2, // size 三个数据为一组 告诉三个点位一组颜色  1, 2, 3, or 4. 指定每个顶点属性的组成数量，必须是 1，2，3 或 4。
+    2, // size 2个数据为一组    
     gl.FLOAT, //type gl.FLOAT: 32-bit IEEE floating point number 32 位 IEEE 标准的浮点数
     false, // normalized 当转换为浮点数时是否应该将整数数值归一化到特定的范围。
     FSIZE * 2, // stride 以字节为单位指定连续顶点属性开始之间的偏移量 (即数组中一行长度)。不能大于 255。如果 stride 为 0，则假定该属性是紧密打包的，即不交错属性，每个属性在一个单独的块中，下一个顶点的属性紧跟当前顶点之后。

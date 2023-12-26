@@ -60,7 +60,7 @@ window.onload = function () {
   let Position = [0.1, 0.0, 0.0, 1.0];
   // 将顶点位置输入给 attribute变量
   gl.vertexAttrib1f(a_PointSize, PointSize);
-  // // 数组传递
+  // // 数组传递 set 
   gl.vertexAttrib3fv(a_Position, new Float32Array(Position));
 
   // 第一步清空这个画布
